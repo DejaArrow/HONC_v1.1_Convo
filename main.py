@@ -76,7 +76,7 @@ model.compile(optimizer='adam',
 
 model.summary()
 
-epochs=40
+epochs=30
 
 history = model.fit(train_ds,epochs=epochs, validation_data = val_ds)
 
@@ -102,7 +102,7 @@ plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
 
-stitch_14 = ('test_14.png')
+stitch_7 = ('test_14.png')
 
 test_img = tf.keras.utils.load_img(
   stitch_14, target_size=(img_height, img_width)
