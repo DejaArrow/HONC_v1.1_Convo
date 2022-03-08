@@ -62,6 +62,9 @@ model = keras.models.Sequential([
   DefaultConv2D(filters=256),
   DefaultConv2D(filters=256),
   keras.layers.MaxPooling2D(pool_size=2),
+  DefaultConv2D(filters=256),
+  DefaultConv2D(filters=256),
+  keras.layers.MaxPooling2D(pool_size=2),
   keras.layers.Flatten(),
   keras.layers.Dense(units=128, activation='relu'),
   keras.layers.Dropout(0.5),
@@ -76,7 +79,7 @@ model.compile(optimizer='adam',
 
 model.summary()
 
-epochs=40
+epochs=30
 
 history = model.fit(train_ds,epochs=epochs, validation_data = val_ds)
 
