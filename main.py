@@ -1,12 +1,9 @@
+
 import numpy as np
-import os
-import PIL
-import PIL.Image
-import tensorflow as tf
 import pathlib
 import matplotlib.pyplot as plt
 from functools import partial
-
+import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.models import Sequential
@@ -54,7 +51,7 @@ DefaultConv2D = partial(keras.layers.Conv2D,
                         kernel_size=3, activation='relu', padding="SAME")
 
 model = keras.models.Sequential([
-  DefaultConv2D(filters=64, kernel_size=7, input_shape=[100,100,3]),
+  DefaultConv2D(filters=64, kernel_size=3, input_shape=[100,100,3]),
   layers.MaxPooling2D(pool_size=2),
   DefaultConv2D(filters=128),
   DefaultConv2D(filters=128),
@@ -71,7 +68,7 @@ model = keras.models.Sequential([
   
 ])
 
-model.compile(optimizer='adam', 
+model.compile(optimizer = tf.keras.optimizers.Adam(0.001), 
               loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
@@ -103,7 +100,7 @@ plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
 
-stitch_14 = ('test_7.png')
+stitch_14 = ('test_359.png')
 
 test_img = tf.keras.utils.load_img(
   stitch_14, target_size=(img_height, img_width)
