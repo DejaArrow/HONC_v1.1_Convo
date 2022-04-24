@@ -100,7 +100,7 @@ plt.legend(loc='upper right')
 plt.title('Training and Validation Loss')
 plt.show()
 
-stitch_14 = ('test_359.png')
+stitch_14 = ('test/test_359.png')
 
 test_img = tf.keras.utils.load_img(
   stitch_14, target_size=(img_height, img_width)
